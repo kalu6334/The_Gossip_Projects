@@ -1,0 +1,42 @@
+<div class="page">
+
+  <p style="font-size: 22px"><u><b>Gossip n° <%=@gossip.id%></b></u></p>
+  <div class="like">
+    <%if current_user%>
+      <% if get_like(current_user, @gossip)%>
+        <p style="font-size: 30px"> <%= link_to "♥", gossip_like_path(@gossip.id, get_like(current_user, @gossip).id), method: :delete, :class => "badge badge-primary clicked"%>
+      <% else %>
+        <p style="font-size: 30px"> <%= link_to "♥",gossip_likes_path(@gossip.id), method: :create, :class => "badge badge-primary"%>
+      <% end %>
+    <% end %>
+    <small style="font-size: 14px"><em><%="#{@gossip.likes.count} likes"%></em></small></p>
+  </div>
+
+  <div class="content">
+    <div class="section">
+      <p>
+        <b>Author:</b> <%= @gossip.user.first_name %> from the city of 
+        <%= link_to @gossip.user.city.name, city_path(@gossip.user.city.id)%>
+      </p>
+      <p><b>Title:</b> <%= @gossip.title %></p>
+      <p><b>Content:</b> <%= @gossip.content %></p>
+      <p style="font-size: 20px">
+  <%= link_to "Edit", edit_gossip_path, :class => "badge badge-success"%>
+  <%= link_to "Delete", gossip_path(@gossip.id), :method => "delete", :class => "badge badge-danger", :data => {:confirm => "Do you really want to Delete this gossip?"} %>
+  </p>
+      <p class="datetime"><em><%= @gossip.created_at %></em></p>
+      <%= link_to "More about the author...", user_path(@gossip.user.id)%>
+    </div>
+    <br>
+    <hr>
+  </div>
+
+  <div class="section">
+    <h5>Comments (<%= @gossip.comments.size %>)</h5>
+    <%= render partial: 'gossips/comment', collection: @gossip.comments.reverse %>
+  </div><hr>
+  <div class="section">
+    <h5>Post a comment</h5>
+    <%= render partial: 'comments/form' %>
+  </div>
+</div>
