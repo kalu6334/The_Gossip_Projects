@@ -1,13 +1,14 @@
 class PagesController < ApplicationController
-    def home
-      @gossips = Gossip.all
-    end
     def team
     end
     def contact
     end
-    def welcome
-      @gossips = Gossip.all
+    def home
+        @gossips = Gossip.all
     end
+    def welcome
+        @welcome = params[:first_name]
+    end
+    
   
-  end
+end

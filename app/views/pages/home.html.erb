@@ -1,30 +1,10 @@
-<div class="wrapping">
+<h1> Bienvenu dans l'application </h1>
+ <% @gossips.each_with_index do |gossip, i| %>
+<h5>
+<b> Author:</b> <%=gossip.user.first_name%> <br>
+</h5>
+<p>
+<b>Title:</b> <%=gossip.title%> <%= link_to "Voir le gossip", gossip_path(gossip.id) %>
+</p>
 
-<div class="jumbotron jumbotron-fluid text-center" style="background-image: url(https://i.pinimg.com/564x/7e/12/94/7e1294d5fdbd33d10726312ba874dd43.jpg)">
-  <div class="box mx-auto">
-    <h1 class="title"><b>THE GOSSIP PROJECT</b></h1>
-    <p class="lead"><b>This Gossip Project allows users to post, comment and like gossips...</b></p>
-    
-  </div>
-</div>
-<div class="container text-center">
-  <div class="page">
-    <h4><u>Juicy list of Gossips:</u></h4>
-  </div>
-  <br>  
-
-  <div class="row col">
-    <% @gossips.each_with_index do |gossip, i| %>
-      <div class="card" style="width:18rem;">
-        <h5>
-          <b>Title:</b> <%=gossip.title%>
-        </h5>
-        <p><b>
-          Author:</b> <%=gossip.user.first_name%><br>
-        </p>
-       
-       
-      </div>
-    <%end%>
-  </div>
-</div>
+ <%end%>
