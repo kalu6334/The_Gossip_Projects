@@ -1,9 +1,10 @@
 
-<p><b>first_name:</b> <%= @user.first_name %></p>
-<p><b>last_name:</b> <%= @user.last_name %></p>
-<p><b>description:</b> <%= @user.description %></p>
-<p><b>email:</b> <%= @user.email %></p>
-<p><b>age:</b> <%= @user.age %></p>
+<p><b>Prénom:</b> <%= @user.first_name %></p>
+<p><b>Nom:</b> <%= @user.last_name %></p>
+<p><b>Description:</b> <%= @user.description %></p>
+<p><b>E-mail:</b> <%= @user.email %></p>
+<p><b>Age:</b> <%= @user.age %></p>
+<p><b>Ville:</b> <%= @user.city.name %></p>
 
 
-
+<%= link_to "lien vers la ville de l'auteur", city_path(@user.city.id)%>

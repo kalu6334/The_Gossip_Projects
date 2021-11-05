@@ -1,6 +1,10 @@
 
 
-<p><b>Title:</b> <%= @gossip.title %></p>
-<p><b>Content:</b> <%= @gossip.content %></p>
+<p><b>Titre:</b> <%= @gossip.title %></p>
+<p><b>Contenu:</b> <%= @gossip.content %></p>
+<p><b>Auteur:</b> <%= @gossip.user.first_name %></p>
+<p><b>Ville de l'Auteur:</b> <%= @gossip.user.city.name %></p>
 
- <%= link_to "Page Profil", user_path(@gossip.user.id)%>
+
+ <%= link_to "Page Profil de l'Auteur", user_path(@gossip.user.id)%>
+ 

@@ -1,10 +1,10 @@
-class PagesController < ApplicationController
+class PageController < ApplicationController
     def team
     end
     def contact
     end
     def home
-        @gossips = Gossip.all
+        # @gossips = Gossip.all
     end
     def welcome
         @welcome = params[:first_name]

@@ -1,0 +1,7 @@
+
+<p><b>Nom de la Ville:</b> <%= @city.name %></p>
+<% @gossips.each do |gossip|%>
+<%if gossip.user.city.name == @city.name%>
+<p><b>Potins:</b> <%= gossip.content %></p>
+<%end%>
+<%end%>
